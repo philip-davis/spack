@@ -1,0 +1,22 @@
+commit f454b33e54433b465c316a24d37e86c2a05b9ca0
+Author: Satish Balay <balay@mcs.anl.gov>
+Date:   Tue Oct 1 08:37:21 2019 -0500
+
+    makefile: add back .F.o compile target
+    
+    Fixes pflotran build
+
+diff --git a/lib/petsc/conf/rules b/lib/petsc/conf/rules
+index d23fb71b91..1386613a28 100644
+--- a/lib/petsc/conf/rules
++++ b/lib/petsc/conf/rules
+@@ -270,6 +270,9 @@ getautoconfargs:
+ .cu.o:
+ 	${PETSC_CUCOMPILE_SINGLE} `pwd`/$<
+ 
++.F.o .F90.o .F95.o:
++	${PETSC_FCOMPILE} -o $@ $<
++
+ #
+ #  These rules are for compiling the test examples.
+ #

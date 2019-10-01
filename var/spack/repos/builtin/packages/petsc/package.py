@@ -114,6 +114,8 @@ class Petsc(Package):
 
     patch('xlf_fix-dup-petscfecreate.patch', when='@3.11.0')
 
+    patch('ftn-compile.patch', when='@3.12.0')
+
     # Virtual dependencies
     # Git repository needs sowing to build Fortran interface
     depends_on('sowing', when='@develop')
